@@ -1,0 +1,31 @@
+.home_page {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:2rem;
+    justify-content: center;
+    align-items: center;
+    
+    .std_frame_light_gray{
+        background-color: var(--color-gray02);
+        border-radius: .5rem;
+        padding:1rem;
+        width:100%;
+      }
+    .col_1 {
+        display:flex;
+        flex-wrap: wrap;
+        gap:1rem;
+        width:80%;
+    }
+
+    .title_custom{
+        display:flex;
+        color:var(--color_text_white);
+    }
+}
+
+#markdown_content{
+    background-color: rgba(70, 70, 70, 1);
+    border-radius: .25rem;
+    padding: 0.5rem;
+}

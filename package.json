@@ -1,0 +1,23 @@
+{
+  "name": "docswebsite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "compile_sass": "sass --watch public/styling/scss:public/styling/css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "marked": "^13.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "sass": "^1.77.8"
+  }
+}

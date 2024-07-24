@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= locals.title || "missing" %></title>
+  <link rel="stylesheet" type="text/css" href="styling/css/style.css">
+</head>
+<body>
+    <%- include("partials/header"); %>
+  <main>
+    <%- include(view_str); %>
+  </main>
+</body>
+</html>

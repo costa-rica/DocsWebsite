@@ -1,0 +1,47 @@
+.home_page {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.home_page .std_frame_light_gray {
+  background-color: var(--color-gray02);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+}
+.home_page .col_1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 80%;
+}
+.home_page .title_custom {
+  display: flex;
+  color: var(--color_text_white);
+}
+
+#markdown_content {
+  background-color: rgb(70, 70, 70);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+body {
+  background-color: rgb(100, 100, 100);
+}
+
+h1 {
+  color: black;
+}
+
+header {
+  background-color: rgb(200, 200, 200);
+}
+
+/*# sourceMappingURL=style.css.map */
