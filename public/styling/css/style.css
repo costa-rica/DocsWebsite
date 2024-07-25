@@ -1,9 +1,7 @@
 .home_page {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 2rem;
   justify-content: center;
-  align-items: center;
 }
 .home_page .std_frame_light_gray {
   background-color: var(--color-gray02);
@@ -20,12 +18,22 @@
 .home_page .title_custom {
   display: flex;
   color: var(--color_text_white);
+  width: 100%;
+}
+.home_page .title_custom h1 {
+  width: 100%;
 }
 
 #markdown_content {
   background-color: rgb(70, 70, 70);
   border-radius: 0.25rem;
   padding: 0.5rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav ul li {
