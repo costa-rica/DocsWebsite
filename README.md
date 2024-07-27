@@ -9,3 +9,24 @@ This web application is used for displaying various documentation that I have ma
 - Express
 - EJS
 - Marked
+
+## Folder Structure
+```
+.
+├── node_modules
+├── package.json
+├── package-lock.json
+├── public
+│   ├── js
+│   │   └── scripts.js
+│   └── styling
+├── README.md
+├── server.js
+└── views
+    ├── index.ejs
+    ├── layout.ejs
+    ├── partials
+    ├── surfacePro4Stuff.ejs
+    └── ubuntuStuff.ejs
+
+```

@@ -1,10 +1,27 @@
 <header>
-    <h1><%= locals.header_title || "failed to get header_title in header.ejs" %></h1>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="/web_image/folder_128_color.png" alt="Your Logo">
+      <span class="page-name">
+        <h1>
+          <%= locals.header_title || "failed to get header_title in header.ejs" %>
+        </h1>
+      </span>
+    </div>
+    
+  
     <nav>
-      <ul>
+      <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/ubuntu_stuff">Ubuntu</a></li>
         <li><a href="/surface_pro_4_stuff">Surface Pro 4 </a></li>
       </ul>
+      <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
     </nav>
-  </header>
+  </div>
+
+</header>

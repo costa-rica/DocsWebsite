@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet');
 .home_page {
   display: flex;
   flex-wrap: wrap;
@@ -25,31 +26,123 @@
 }
 
 #markdown_content {
-  background-color: rgb(70, 70, 70);
   border-radius: 0.25rem;
   padding: 0.5rem;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav ul li {
-  display: inline-block;
-}
-
-body {
-  background-color: rgb(100, 100, 100);
-}
-
-h1 {
+  color: var(--color-light-gray);
   color: black;
 }
 
 header {
-  background-color: rgb(200, 200, 200);
+  color: var(--color-accent-blue);
+  padding: 1rem;
 }
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-container .logo {
+  display: flex;
+  align-items: center;
+}
+.nav-container .logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+.nav-container .logo .page-name {
+  color: white;
+  font-size: 1.5rem;
+  display: none; /* Hide by default on small screens */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+nav .nav-links {
+  display: none; /* Hide by default on small screens */
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: #333;
+  padding: 1rem;
+  border-radius: 5px;
+}
+nav .nav-links li {
+  margin: 0;
+  padding: 0.5rem 0;
+}
+nav .nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+nav .nav-links li a:hover {
+  text-decoration: underline;
+}
+nav .hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+nav .hamburger-menu .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+@media (min-width: 768px) {
+  .nav-container .logo .page-name {
+    display: inline; /* Show the page name on larger screens */
+  }
+}
+:root {
+  --nav-height: 123px;
+  --nav-width: 230px;
+  /* Colors */
+  --color-base-gray: #737373;
+  --color-light-gray: #E0E0E0;
+  --color-dark-gray: #404040;
+  --color-accent-blue: #4A90E2;
+  --color-soft-white: #F9F9F9;
+}
+
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  background-color: var(--color-base-gray);
+  margin: 0;
+  color: var(--color-dark-gray);
+}
+
+header {
+  background-color: var(--color-dark-gray);
+}
+
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+/* OLD */
 
 /*# sourceMappingURL=style.css.map */

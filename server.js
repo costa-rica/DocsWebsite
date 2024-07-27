@@ -30,11 +30,9 @@ function renderWithLayout(res, view, options) {
 }
 
 async function convertMarkdown(filename) {
-    // const data = await fs_promises.readFile(filePathAndName, "utf8");
-    const filePathAndName = path.join(config.PROJECT_RESOURCES_DIR, filename)
+    const filePathAndName = path.join(config.PROJECT_RESOURCES_DIR,"markdown_docs", filename)
     const data = await fs_promises.readFile(filePathAndName, "utf8");
     console.log("data: " + data.substring(0, 15))
-    // return Buffer.from(data);
     return marked.parse(data)
 }
 
@@ -61,11 +59,9 @@ app.get('/ubuntu_stuff', async (req, res) => {
 });
 
 app.get('/surface_pro_4_stuff', (req, res) => {
-
     console.log("config.PROJECT_RESOURCES_DIR: " + config.PROJECT_RESOURCES_DIR)
-
-    // fs.readFile('/home/nick/Desktop/NewSurfacePro4Os.md', 'utf8', (err, data) => {
-    fs.readFile(path.join(config.PROJECT_RESOURCES_DIR, 'NewSurfacePro4Os.md'), 'utf8', (err, data) => {
+    let filePathAndName = path.join(config.PROJECT_RESOURCES_DIR,"markdown_docs","NewSurfacePro4Os.md");
+    fs.readFile(filePathAndName, 'utf8', (err, data) => {
         if (err) {
             return res.status(500).send('Error reading markdown file');
         }
@@ -77,6 +73,14 @@ app.get('/surface_pro_4_stuff', (req, res) => {
         });
     });
 });
+
+app.get('/web_image/:filename',(req,res) =>{
+    console.log("- in web_image")
+    let filename = req.params.filename
+    console.log(`gettting ${filename}`)
+    let filePathAndName = path.join(config.PROJECT_RESOURCES_DIR,"images_website",filename)
+    res.sendFile(filePathAndName)
+})
 
 
 

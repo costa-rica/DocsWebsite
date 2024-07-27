@@ -1,11 +1,77 @@
 @use "main";
 @use "navbar";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet');
+
+
+
+:root {
+  --nav-height: 123px;
+  --nav-width: 230px;
+  /* Colors */
+  --color-base-gray: #737373; //primary background
+  --color-light-gray: #E0E0E0; //code snippets, sidebars
+  --color-dark-gray: #404040; //text, headings
+  --color-accent-blue: #4A90E2; //links, buttons, icons
+  --color-soft-white: #F9F9F9; //text areas
+}
+
+* {
+  // margin: 0;
+  // padding: 0;
+  // box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
 body {
-    background-color: rgb(100, 100, 100);
+  // background-color: var(--color-base-gray);
+  background-color: var(--color-base-gray);
+  // background-color:#737373;
+  margin: 0;
+  color: var(--color-dark-gray);
 }
-h1{
-    color: black;
+
+// h1{
+//     color: black;
+// }
+header {
+  // background-color: var(--color-light-gray);
+  background-color: var(--color-dark-gray);
+
 }
-header{
-    background-color: rgb(200,200,200);
+
+/* unvisited link */
+a:link {
+  color: red;
 }
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+
+/* OLD */
+//--color-d-background: #202020
+
+// --color-gray01-light: #d1d1d1;
+// --color-gray02: #bfbfbf;
+// --color-gray03: #a0a0a0;
+// --color-gray04: #808080;
+// --color-gray05: #212121;
+// --color_theme_yellow: #F1B50E;
+// --color_theme_blue: #5987E0;
+
+// --color_background_black: #000000;
+// --color_side_bar_gray: #A8A8A8;
+// --color_text_white: var(--color-gray01-light);
+// --color_text_dark: var(--color-gray05);
