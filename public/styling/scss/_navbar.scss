@@ -1,9 +1,4 @@
 header {
-  // display:flex;
-  // // flex-wrap: wrap;
-  // justify-content: space-between;
-  // align-items: center;
-  // width:100%;
   color: var(--color-accent-blue);
   padding: 1rem;
 }
@@ -12,7 +7,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  a {
+    color: white;
+    text-decoration: none;
 
+
+  }
   .logo {
     display: flex;
     align-items: center;
@@ -41,7 +41,8 @@ nav {
     position: absolute;
     top: 60px;
     right: 10px;
-    background-color: #333;
+    // background-color: #333;
+    background-color: var(--color-dark-gray);
     padding: 1rem;
     border-radius: 5px;
 
@@ -49,14 +50,14 @@ nav {
       margin: 0;
       padding: 0.5rem 0;
 
-      a {
-        color: white;
-        text-decoration: none;
+      // a {
+      //   color: white;
+      //   text-decoration: none;
 
-        &:hover {
-          text-decoration: underline;
-        }
-      }
+      //   &:hover {
+      //     text-decoration: underline;
+      //   }
+      // }
     }
   }
 
@@ -66,20 +67,67 @@ nav {
     cursor: pointer;
 
     .bar {
-      width: 25px;
-      height: 3px;
+      width: 35px;
+      // width: 1rem;
+      height: 4px;
+      // height: 1rem;
       background-color: white;
       margin: 4px 0;
+      border-radius: 10px;
     }
   }
 }
   // }
 // }
 
-@media (min-width: 768px) {
+// .nav-links becomes nav-links-active when hamburger is clicked
+.nav-links-active {
+  display: flex !important; /* Show the navigation links when this class is applied */
+}
+
+@media screen and (min-width: 768px) {
   .nav-container {
-    .logo .page-name {
-      display: inline; /* Show the page name on larger screens */
+    .logo {
+      img {
+        height: 70px;
+        // margin-right: 10px;
+      }
+      .page-name {
+        display: block;
+      }
+    }
+
+
+    nav {
+      display: flex;
+      align-items: center;
+
+      .nav-links {
+        display: flex; /* Show the navigation links on larger screens */
+        flex-direction: row; /* Arrange links horizontally */
+        list-style-type: none; /* Remove bullets */
+        padding: 0;
+        // margin: 0;
+        font-size: x-large;
+
+        li {
+          margin-left: 1rem;
+          padding: 0;
+
+          // a {
+          //   color: white;
+          //   text-decoration: none;
+
+          //   &:hover {
+          //     text-decoration: underline;
+          //   }
+          // }
+        }
+      }
+
+      .hamburger-menu {
+        display: none;
+      }
     }
   }
 }

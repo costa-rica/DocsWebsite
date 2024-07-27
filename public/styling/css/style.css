@@ -42,6 +42,10 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+.nav-container a {
+  color: white;
+  text-decoration: none;
+}
 .nav-container .logo {
   display: flex;
   align-items: center;
@@ -66,7 +70,7 @@ nav .nav-links {
   position: absolute;
   top: 60px;
   right: 10px;
-  background-color: #333;
+  background-color: var(--color-dark-gray);
   padding: 1rem;
   border-radius: 5px;
 }
@@ -74,28 +78,47 @@ nav .nav-links li {
   margin: 0;
   padding: 0.5rem 0;
 }
-nav .nav-links li a {
-  color: white;
-  text-decoration: none;
-}
-nav .nav-links li a:hover {
-  text-decoration: underline;
-}
 nav .hamburger-menu {
   display: flex;
   flex-direction: column;
   cursor: pointer;
 }
 nav .hamburger-menu .bar {
-  width: 25px;
-  height: 3px;
+  width: 35px;
+  height: 4px;
   background-color: white;
   margin: 4px 0;
+  border-radius: 10px;
 }
 
-@media (min-width: 768px) {
+.nav-links-active {
+  display: flex !important; /* Show the navigation links when this class is applied */
+}
+
+@media screen and (min-width: 768px) {
+  .nav-container .logo img {
+    height: 70px;
+  }
   .nav-container .logo .page-name {
-    display: inline; /* Show the page name on larger screens */
+    display: block;
+  }
+  .nav-container nav {
+    display: flex;
+    align-items: center;
+  }
+  .nav-container nav .nav-links {
+    display: flex; /* Show the navigation links on larger screens */
+    flex-direction: row; /* Arrange links horizontally */
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+    font-size: x-large;
+  }
+  .nav-container nav .nav-links li {
+    margin-left: 1rem;
+    padding: 0;
+  }
+  .nav-container nav .hamburger-menu {
+    display: none;
   }
 }
 :root {
@@ -111,6 +134,10 @@ nav .hamburger-menu .bar {
 
 * {
   font-family: "Ubuntu", sans-serif;
+  /* unvisited link */
+}
+* a:link {
+  color: var(--color-accent-blue);
 }
 
 body {
@@ -121,26 +148,6 @@ body {
 
 header {
   background-color: var(--color-dark-gray);
-}
-
-/* unvisited link */
-a:link {
-  color: red;
-}
-
-/* visited link */
-a:visited {
-  color: green;
-}
-
-/* mouse over link */
-a:hover {
-  color: hotpink;
-}
-
-/* selected link */
-a:active {
-  color: blue;
 }
 
 /* OLD */
