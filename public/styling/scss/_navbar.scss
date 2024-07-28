@@ -1,9 +1,14 @@
 header {
   color: var(--color-accent-blue);
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .nav-container {
+
   display: flex;
   justify-content: space-between;
   align-items: center;

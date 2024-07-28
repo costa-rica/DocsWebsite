@@ -5,7 +5,7 @@
 
 
 :root {
-  --nav-height: 123px;
+  --nav-height: 1px;
   --nav-width: 230px;
   /* Colors */
   --color-base-gray: #737373; //primary background
@@ -33,8 +33,12 @@ body {
   // background-color:#737373;
   margin: 0;
   color: var(--color-dark-gray);
-}
 
+}
+main{
+  margin-top:var(--nav-height);
+  // margin-top: 20px;
+}
 // h1{
 //     color: black;
 // }
@@ -44,7 +48,10 @@ header {
 
 }
 
-
+code {
+  background-color: black;
+  color: white;
+}
 
 
 /* OLD */

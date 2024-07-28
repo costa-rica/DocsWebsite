@@ -35,6 +35,10 @@
 header {
   color: var(--color-accent-blue);
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .nav-container {
@@ -122,7 +126,7 @@ nav .hamburger-menu .bar {
   }
 }
 :root {
-  --nav-height: 123px;
+  --nav-height: 1px;
   --nav-width: 230px;
   /* Colors */
   --color-base-gray: #737373;
@@ -146,8 +150,17 @@ body {
   color: var(--color-dark-gray);
 }
 
+main {
+  margin-top: var(--nav-height);
+}
+
 header {
   background-color: var(--color-dark-gray);
+}
+
+code {
+  background-color: black;
+  color: white;
 }
 
 /* OLD */

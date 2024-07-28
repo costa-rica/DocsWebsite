@@ -1,4 +1,12 @@
-document.addEventListener('DOMContentLoaded',()=>{
+setMainElementHeight()
+document.addEventListener('DOMContentLoaded',navBarHamburgerMenu);
+
+// Add an event listener for the resize event
+window.addEventListener('resize', () => {
+  setMainElementHeight();
+})
+
+function navBarHamburgerMenu() {
   console.log("- scripts.js is accessed!")
 
   const hamburgerMenu = document.querySelector('.hamburger-menu');
@@ -7,7 +15,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   const body = document.querySelector('body');
 
   hamburgerMenu.addEventListener('click', (event) => {
-    console.log('- clicked hamburger :))');
+    // console.log('- clicked hamburger :))');
     navLinks.classList.toggle('nav-links-active');
     event.stopPropagation(); // Prevent body click event from firing immediately
   });
@@ -28,4 +36,18 @@ document.addEventListener('DOMContentLoaded',()=>{
   navLinks.addEventListener('click', (event) => {
     event.stopPropagation();
   });
-});
+}
+
+// Function to set the height of the main element to the height of the headerNavBar element
+function setMainElementHeight() {
+  // Select the main element
+  var mainElement = document.querySelector('main');
+
+  // Select the headerNavBar element
+  var headerNavBar = document.querySelector('header')
+
+  // Set the height of the main element to the height of the headerNavBar element
+  mainElement.style.marginTop = headerNavBar.offsetHeight + 'px';
+}
+
+
