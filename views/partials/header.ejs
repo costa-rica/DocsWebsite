@@ -1,31 +1,35 @@
 <header>
   <div class="nav-container">
     <a href="/">
-    <div class="logo">
-      <img src="/web_image/folder_128_color.png" alt="Docs Page Logo">
-      <span class="page-name">
-        <h1>
-          <%= locals.header_title || "failed to get header_title in header.ejs" %>
-        </h1>
-      </span>
-    </div><!-- logo -->
-  </a>
-    
-  
-    <nav>
-      <ul class="nav-links">
-        <% for( let index=0; index < locals.arry_files.length; index++ ) { %>
+      <div class="logo">
+        <img src="/web_image/folder_128_color.png" alt="Docs Page Logo">
+        <span class="page-name">
+          <h1>
+            <%= locals.header_title || "failed to get header_title in header.ejs" %>
+          </h1>
+        </span>
+      </div><!-- logo -->
+    </a>
 
+
+    <nav>
+      <ul class="nav-links div_documentations_dropdown_content">
+        <% for( let index=0; index < locals.arry_files.length; index++ ) { %>
           <li><a href="/doc/<%= locals.arry_files[index] %>">
               <%= locals.arry_files[index] %>
             </a></li>
-
           <% } %>
       </ul>
       <div class="hamburger-menu">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
+      </div>
+      <div class="no_hamburger_menu">
+        <ul class="ul_no_hamburger_menu">
+          <li> <button class="btn_documentations_dropdown" onclick="documentationDropdown()">Docs List</button></li>
+          <!-- <li>Upload</li> -->
+        </ul>
       </div>
     </nav>
   </div><!-- nav-container -->

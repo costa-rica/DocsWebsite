@@ -6,6 +6,27 @@ window.addEventListener('resize', () => {
   setMainElementHeight();
 })
 
+function documentationDropdown() {
+  console.log("-- accessed documentationDropdown")
+  let divDocsDropdownContent = document.querySelector('.div_documentations_dropdown_content')
+
+  // Set the divDocsDropdownContent element's CSS in line with the JavaScript
+  var currentDropContent = window.getComputedStyle(divDocsDropdownContent).display;
+
+  console.log("currentDropContent: " + currentDropContent)
+  if (currentDropContent === "none"){
+
+    console.log("--- It was NONE")
+    // divDocsDropdownContent.style.display = "flex"
+    divDocsDropdownContent.style.display = "inline-block"
+  } 
+  if (currentDropContent === "block") {
+    console.log("--- It was inline-block")
+    divDocsDropdownContent.style.display = "none"
+  }
+
+}
+
 function navBarHamburgerMenu() {
   console.log("- scripts.js is accessed!")
 
@@ -49,5 +70,7 @@ function setMainElementHeight() {
   // Set the height of the main element to the height of the headerNavBar element
   mainElement.style.marginTop = headerNavBar.offsetHeight + 'px';
 }
+
+
 
 

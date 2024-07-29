@@ -63,6 +63,9 @@ header {
   font-size: 1.5rem;
   display: none; /* Hide by default on small screens */
 }
+.nav-container .nav_menu_dropdown {
+  display: none;
+}
 
 nav {
   display: flex;
@@ -95,6 +98,12 @@ nav .hamburger-menu .bar {
   margin: 4px 0;
   border-radius: 10px;
 }
+nav .no_hamburger_menu {
+  display: none;
+}
+nav .div_documentations_dropdown_content {
+  display: none;
+}
 
 .nav-links-active {
   display: flex !important; /* Show the navigation links when this class is applied */
@@ -112,15 +121,39 @@ nav .hamburger-menu .bar {
     align-items: center;
   }
   .nav-container nav .nav-links {
-    display: flex; /* Show the navigation links on larger screens */
     flex-direction: row; /* Arrange links horizontally */
     list-style-type: none; /* Remove bullets */
     padding: 0;
-    font-size: x-large;
+    font-size: large;
+    top: 100px; /*position of menu*/
   }
   .nav-container nav .nav-links li {
     margin-left: 1rem;
     padding: 0;
+  }
+  .nav-container nav .nav-links a:hover {
+    font-size: larger;
+  }
+  .nav-container nav .no_hamburger_menu {
+    display: inline;
+  }
+  .nav-container nav .btn_documentations_dropdown {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    cursor: pointer;
+    color: var(--color-accent-blue);
+    font-size: larger;
+  }
+  .nav-container nav .ul_no_hamburger_menu {
+    margin: 0;
+    padding: 0.5rem 0;
+    list-style-type: none;
+    font-size: larger;
+  }
+  .nav-container nav .ul_no_hamburger_menu li {
+    display: inline;
+    padding-right: 1rem;
   }
   .nav-container nav .hamburger-menu {
     display: none;

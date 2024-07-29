@@ -51,31 +51,22 @@ async function convertMarkdown(filename) {
   console.log(`----> [in convertMarkdown] passed filename arg: ${filename}`)
   const filePathAndName = path.join(config.PROJECT_RESOURCES_DIR, "markdown_docs", filename)
   const data = await fs_promises.readFile(filePathAndName, "utf8");
-  console.log("data: " + data.substring(0, 15))
+  // const html_from_md = marked.parse(data);
+  // console.log("data: " + data.substring(0, 15))
+
+  // // Extract the first <h1> tag content
+  // const h1Match = html_from_md.match(/<h1>(.*?)<\/h1>/);
+  // const markdown_page_title = h1Match ? h1Match[1] : '';
+
+
   return marked.parse(data)
+  // return {
+  //   html_from_md, 
+  //   markdown_page_title
+  // };
 }
 
 app.get('/', (req, res) => {
-  // var files = fs.readdirSync(path.join(config.PROJECT_RESOURCES_DIR, "markdown_docs"));
-  // console.log("all files: " + files)
-  // let arry_files = []
-  // for (file of files ) {
-  //   var period_loc = file.lastIndexOf('.');
-  //   var arr_name_and_extension = file.split(".")
-  //   // var extension = arr_name_and_extension.pop();
-  //   var extension = arr_name_and_extension[1]
-  //   var name = arr_name_and_extension[0]
-
-  //   // var file_w_o_extension = file.substring(0, period_loc);
-  //   // console.log(arr_name_and_extension)
-  //   // console.log(name)
-  //   // console.log(extension)
-  //   if (extension == "md"){
-  //     arry_files.push(name)
-  //   }
-    
-  // };
-  // console.log(arry_files)
 
   renderWithLayout(res, 'index', { title: 'Home' });
 });
@@ -85,9 +76,11 @@ app.get('/doc/:markdown_file', async (req, res) => {
   console.log("- in doc route")
   // use the :markdown_file arg passed in the url address
   let markdown_file_str = req.params.markdown_file + ".md"
-  console.log(`-- viewing ${markdown_file_str}`)
+  // console.log(`-- viewing ${markdown_file_str}`)
   try {
+    // const {md, markdown_page_title } = await convertMarkdown(markdown_file_str);
     const md = await convertMarkdown(markdown_file_str);
+    // console.log(`---> markdown_page_title: ${markdown_page_title}`)
     renderWithLayout(res, 'doc', {converted_markdown_content: md});
   } catch (err) {
     // Handle any errors that occur during the file reading process

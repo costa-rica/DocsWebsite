@@ -8,15 +8,12 @@ header {
 }
 
 .nav-container {
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   a {
     color: white;
     text-decoration: none;
-
-
   }
   .logo {
     display: flex;
@@ -33,6 +30,7 @@ header {
       display: none; /* Hide by default on small screens */
     }
   }
+  .nav_menu_dropdown{display:none;}
 }
 
 
@@ -46,7 +44,6 @@ nav {
     position: absolute;
     top: 60px;
     right: 10px;
-    // background-color: #333;
     background-color: var(--color-dark-gray);
     padding: 1rem;
     border-radius: 5px;
@@ -55,14 +52,6 @@ nav {
       margin: 0;
       padding: 0.5rem 0;
       list-style-type: none;
-      // a {
-      //   color: white;
-      //   text-decoration: none;
-
-      //   &:hover {
-      //     text-decoration: underline;
-      //   }
-      // }
     }
   }
 
@@ -73,13 +62,15 @@ nav {
 
     .bar {
       width: 35px;
-      // width: 1rem;
       height: 4px;
-      // height: 1rem;
       background-color: white;
       margin: 4px 0;
       border-radius: 10px;
     }
+  }
+  .no_hamburger_menu{display:none;}
+  .div_documentations_dropdown_content{
+    display: none;
   }
 }
   // }
@@ -102,34 +93,47 @@ nav {
       }
     }
 
-
     nav {
       display: flex;
       align-items: center;
 
       .nav-links {
-        display: flex; /* Show the navigation links on larger screens */
         flex-direction: row; /* Arrange links horizontally */
         list-style-type: none; /* Remove bullets */
         padding: 0;
-        // margin: 0;
-        font-size: x-large;
+        font-size: large;
+        top: 100px;/*position of menu*/
 
         li {
           margin-left: 1rem;
           padding: 0;
 
-          // a {
-          //   color: white;
-          //   text-decoration: none;
-
-          //   &:hover {
-          //     text-decoration: underline;
-          //   }
-          // }
+        }
+        a:hover{
+          font-size: larger;
+          // color: blueviolet;
         }
       }
-
+      .no_hamburger_menu{display:inline;}
+      .btn_documentations_dropdown{
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        cursor: pointer;
+        color: var(--color-accent-blue);
+        font-size: larger;
+      }
+      .ul_no_hamburger_menu{
+        margin: 0;
+        padding: 0.5rem 0;
+        list-style-type: none;
+        font-size: larger;
+        li{
+          display: inline;
+          padding-right:1rem;
+        }
+        
+      }
       .hamburger-menu {
         display: none;
       }
