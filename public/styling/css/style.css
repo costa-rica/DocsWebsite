@@ -81,6 +81,7 @@ nav .nav-links {
 nav .nav-links li {
   margin: 0;
   padding: 0.5rem 0;
+  list-style-type: none;
 }
 nav .hamburger-menu {
   display: flex;

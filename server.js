@@ -27,6 +27,23 @@ function renderWithLayout(res, view, options) {
   options = options || {};
   options.title = page_title || 'Docs !!! - failed';
   options.header_title = header_title || "failed to get title";
+
+
+  var files = fs.readdirSync(path.join(config.PROJECT_RESOURCES_DIR, "markdown_docs"));
+  console.log("all files: " + files)
+  let arry_files = []
+  for (file of files ) {
+    var arr_name_and_extension = file.split(".")
+    var extension = arr_name_and_extension[1]
+    var name = arr_name_and_extension[0]
+    if (extension == "md"){
+      arry_files.push(name)
+    }
+  };
+  console.log(arry_files)
+
+  options.arry_files = arry_files;
+
   res.render('layout', { ...options, view_str: view });
 }
 
@@ -39,6 +56,27 @@ async function convertMarkdown(filename) {
 }
 
 app.get('/', (req, res) => {
+  // var files = fs.readdirSync(path.join(config.PROJECT_RESOURCES_DIR, "markdown_docs"));
+  // console.log("all files: " + files)
+  // let arry_files = []
+  // for (file of files ) {
+  //   var period_loc = file.lastIndexOf('.');
+  //   var arr_name_and_extension = file.split(".")
+  //   // var extension = arr_name_and_extension.pop();
+  //   var extension = arr_name_and_extension[1]
+  //   var name = arr_name_and_extension[0]
+
+  //   // var file_w_o_extension = file.substring(0, period_loc);
+  //   // console.log(arr_name_and_extension)
+  //   // console.log(name)
+  //   // console.log(extension)
+  //   if (extension == "md"){
+  //     arry_files.push(name)
+  //   }
+    
+  // };
+  // console.log(arry_files)
+
   renderWithLayout(res, 'index', { title: 'Home' });
 });
 

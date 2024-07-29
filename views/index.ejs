@@ -1,23 +1,24 @@
 <div class="home_page">
-    <div class="col_1">
-        <div class="title_custom">
-            <h1>Document everything</h1>
-        </div>
-        
+  <div class="col_1">
+    <div class="title_custom">
+      <h1>Document everything</h1>
+    </div>
+
     <br>
+
     <div class="list_of_pages">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <!-- <li><a href="/surface_pro_4_stuff">Surface Pro 4 </a></li> -->
-            <li><a href="/doc/NewSurfacePro4Os">SurfacePro4</a></li>
-            <!-- <li><a href="/web_image/folder_512_color.png">Icon </a></li> -->
-            <li><a href="/doc/UbuntuStuff">UbuntuStuff</a></li>
-        </ul>
-    
-    </div>
+      <ul>
 
-    </div>
+        <% for( let index=0; index < locals.arry_files.length; index++ ) { %>
 
+          <li><a href="/doc/<%= locals.arry_files[index] %>">
+              <%= locals.arry_files[index] %>
+            </a></li>
 
-</div>
-    
+          <% } %>
+
+      </ul>
+    </div><!-- list_of_pages -->
+
+  </div><!-- col_1 -->
+</div><!-- home_page -->

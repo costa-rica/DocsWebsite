@@ -14,9 +14,13 @@
   
     <nav>
       <ul class="nav-links">
-        <!-- <li><a href="/surface_pro_4_stuff">Surface OLD</a></li> -->
-        <li><a href="/doc/NewSurfacePro4Os">SurfacePro4</a></li>
-        <li><a href="/doc/UbuntuStuff">Ubuntu</a></li>
+        <% for( let index=0; index < locals.arry_files.length; index++ ) { %>
+
+          <li><a href="/doc/<%= locals.arry_files[index] %>">
+              <%= locals.arry_files[index] %>
+            </a></li>
+
+          <% } %>
       </ul>
       <div class="hamburger-menu">
         <div class="bar"></div>
