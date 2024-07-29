@@ -8,16 +8,18 @@ require('dotenv').config();
 const util = require('util');
 
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, "public",)));
 
 const header_title = "Docs Page"
 const page_title = "Docs!!"
 
 const config = {
+  PORT: process.env.PORT,
   PROJECT_RESOURCES_DIR: process.env.PROJECT_RESOURCES_DIR,
-  // anotherConfig: process.env.ANOTHER_CONFIG,
 };
 module.exports = config;// needed for the config object
+
+// Middleware to serve static files
+app.use(express.static('public'))
 
 // Middleware to render views with layout
 function renderWithLayout(res, view, options) {
@@ -36,41 +38,19 @@ async function convertMarkdown(filename) {
   return marked.parse(data)
 }
 
-
 app.get('/', (req, res) => {
   renderWithLayout(res, 'index', { title: 'Home' });
 });
 
+// async needed to wait fro the convertMarkdown to finish
 app.get('/doc/:markdown_file', async (req, res) => {
   console.log("- in doc route")
-  // let markdown_file = req.params.markdown_file
-  // console.log(`-- viewing ${markdown_file}`)
-  // let markdown_file_str = markdown_file + ".md"
-  // console.log(`-- viewing ${markdown_file_str}`)
+  // use the :markdown_file arg passed in the url address
+  let markdown_file_str = req.params.markdown_file + ".md"
+  console.log(`-- viewing ${markdown_file_str}`)
   try {
-    // const converted_markdown_content = await convertMarkdown(markdown_file_str)
-    const md = await convertMarkdown("UbuntuStuff.md");
-    // renderWithLayout(res, markdown_file, {title: 'Ubuntu Stuff', markdown_content: md })
-
-    // renderWithLayout(res, 'ubuntuStuff', {title: 'Ubuntu Stuff', converted_markdown_content: converted_markdown_content });
-    renderWithLayout(res, 'doc', {title: 'Ubuntu Stuff',converted_markdown_content: md});
-
-  } catch (err) {
-    // Handle any errors that occur during the file reading process
-    console.error(err);
-    res.status(500).send('Internal Server Error');
-  };
-});
-
-app.get('/ubuntu_stuff', async (req, res) => {
-  try {
-    const md = await convertMarkdown("UbuntuStuff.md");
-    console.log("--- render page")
-    // Render the page with the md data
-    // res.render('ubuntu_stuff', { md });
-    // renderWithLayout(res, 'ubuntuStuff', {title: 'Ubuntu Stuff',markdown_content: md});
-    renderWithLayout(res, 'doc', {title: 'Ubuntu Stuff',converted_markdown_content: md});
-    // renderWithLayout(res, 'ubuntuStuff', {title: 'Ubuntu Stuff', converted_markdown_content: converted_markdown_content });
+    const md = await convertMarkdown(markdown_file_str);
+    renderWithLayout(res, 'doc', {converted_markdown_content: md});
   } catch (err) {
     // Handle any errors that occur during the file reading process
     console.error(err);
@@ -78,6 +58,8 @@ app.get('/ubuntu_stuff', async (req, res) => {
   }
 });
 
+// This route is OBE and not used any more, but ...
+// it's an example of in route wait for file to get read and populate the htmlContent variable
 app.get('/surface_pro_4_stuff', (req, res) => {
   console.log("config.PROJECT_RESOURCES_DIR: " + config.PROJECT_RESOURCES_DIR)
   let filePathAndName = path.join(config.PROJECT_RESOURCES_DIR, "markdown_docs", "NewSurfacePro4Os.md");
@@ -102,11 +84,7 @@ app.get('/web_image/:filename', (req, res) => {
   res.sendFile(filePathAndName)
 })
 
-// // Handle static files correctly
-// app.use('/public/styling/css', express.static(path.join(__dirname, 'path-to-css-directory')));
-
-app.use(express.static('public'))
-
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+const PORT = config.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
