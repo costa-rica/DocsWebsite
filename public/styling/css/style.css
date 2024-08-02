@@ -109,6 +109,11 @@ nav .div_documentations_dropdown_content {
   display: flex !important; /* Show the navigation links when this class is applied */
 }
 
+.div_markdown_title {
+  color: white;
+  font-size: 1.5rem;
+}
+
 @media screen and (min-width: 768px) {
   .nav-container .logo img {
     height: 70px;

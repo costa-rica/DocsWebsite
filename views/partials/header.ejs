@@ -5,12 +5,15 @@
         <img src="/web_image/folder_128_color.png" alt="Docs Page Logo">
         <span class="page-name">
           <h1>
-            <%= locals.header_title || "failed to get header_title in header.ejs" %>
+            <%= locals.project_header_title || "failed to get header_title in header.ejs" %>
           </h1>
         </span>
       </div><!-- logo -->
     </a>
-
+    <div class="div_markdown_title">
+      <h1 class="h1_div_markdown_title"><%= locals.markdown_page_title %></h1>
+    </div>
+    
 
     <nav>
       <ul class="nav-links div_documentations_dropdown_content">
@@ -28,6 +31,7 @@
       <div class="no_hamburger_menu">
         <ul class="ul_no_hamburger_menu">
           <li> <button class="btn_documentations_dropdown" onclick="documentationDropdown()">Docs List</button></li>
+          <!-- <li><button onclick="hideProjectHeaderTitle()">test</button></li> -->
           <!-- <li>Upload</li> -->
         </ul>
       </div>

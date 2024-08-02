@@ -1,9 +1,11 @@
 setMainElementHeight()
 document.addEventListener('DOMContentLoaded',navBarHamburgerMenu);
+document.addEventListener('DOMContentLoaded',hideProjectHeaderTitle);
 
 // Add an event listener for the resize event
 window.addEventListener('resize', () => {
   setMainElementHeight();
+  
 })
 
 function documentationDropdown() {
@@ -69,6 +71,16 @@ function setMainElementHeight() {
 
   // Set the height of the main element to the height of the headerNavBar element
   mainElement.style.marginTop = headerNavBar.offsetHeight + 'px';
+}
+
+function hideProjectHeaderTitle(){
+  let divMarkdownTitle = document.querySelector('.h1_div_markdown_title')
+  let pageName = document.querySelector('.page-name').querySelector('h1')
+  if (divMarkdownTitle.textContent.length > 0){
+    pageName.style.display = "none";
+  } else { 
+    pageName.style.display = "inline-block"
+  }
 }
 
 
