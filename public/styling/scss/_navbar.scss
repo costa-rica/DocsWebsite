@@ -21,6 +21,9 @@ header {
     text-decoration: none;
   }
   .logo {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
     img {
       height: 40px;
       margin-right: 10px;
@@ -34,11 +37,8 @@ header {
   .nav_menu_dropdown{display:none;}
 }
 .div_markdown_title{
-  // display:flex;
-  // justify-content: center;
   color: white;
   font-size: 1rem;
-  // background-color: green;
   text-align: center;
 }
 nav {
@@ -48,13 +48,12 @@ nav {
     display: none; /* Hide by default on small screens */
     flex-direction: column;
     position: absolute;
-    // top: 60px;
+    // top: 60px;// handled by scripts.js
     right: 0px;
     background-color: var(--color-dark-gray);
     padding: 1rem;
     border-radius: 5px;
     margin:0px;
-    // ul{margin:0}
     li {
       margin: 0;
       padding: 0.5rem 0;
@@ -82,22 +81,17 @@ nav {
   display: flex !important; /* Show the navigation links when this class is applied */
 }
 
-
-
 @media screen and (min-width: 768px) {
   .nav-container {
     .logo {
       display: flex;
-      // background-color: green;
       align-items: center;
       img {
         height: 70px;
-        // margin-right: 10px;
         padding: 0.5rem 0;
       }
       .page-name {
         display: block;
-        
         h1{margin:0}
       }
     }
@@ -116,11 +110,9 @@ nav {
         li {
           margin-left: 1rem;
           padding: 0;
-
         }
         a:hover{
           font-size: larger;
-          // color: blueviolet;
         }
       }
       .no_hamburger_menu{display:inline;}
@@ -134,14 +126,12 @@ nav {
       }
       .ul_no_hamburger_menu{
         margin: 0;
-        // padding: 0.5rem 0;
         list-style-type: none;
         font-size: larger;
         li{
           display: inline;
           padding-right:1rem;
         }
-        
       }
       .hamburger-menu {
         display: none;
