@@ -1,65 +1,36 @@
 setMainElementHeight()
-document.addEventListener('DOMContentLoaded',navBarHamburgerMenu);
-document.addEventListener('DOMContentLoaded',hideProjectHeaderTitle);
 
 // Add an event listener for the resize event
 window.addEventListener('resize', () => {
   setMainElementHeight();
+  adjustDropdownHeightOnScreenSizeChange();
 })
 
-function documentationDropdown() {
-  console.log("-- accessed documentationDropdown")
-  let divDocsDropdownContent = document.querySelector('.div_documentations_dropdown_content')
+document.addEventListener('DOMContentLoaded', hideDocsWebTitle)
 
-  // Set the divDocsDropdownContent element's CSS in line with the JavaScript
-  var currentDropContent = window.getComputedStyle(divDocsDropdownContent).display;
+// window.addEventListener('resize',adjustDropdownHeightOnScreenSizeChange)
 
-  console.log("currentDropContent: " + currentDropContent)
-  if (currentDropContent === "none"){
+// document.addEventListener('DOMContentLoaded',navBarHamburgerMenu);
 
-    console.log("--- It was NONE")
-    // divDocsDropdownContent.style.display = "flex"
-    divDocsDropdownContent.style.display = "inline-block"
-  } 
-  if (currentDropContent === "block") {
-    console.log("--- It was inline-block")
-    divDocsDropdownContent.style.display = "none"
-  }
+// // function documentationDropdown(){
+// //   console.log("- in documentationDropdown()")
+// // }
+// function navBarHamburgerMenu() {
+//   console.log("- in navBarHamburgerMenu()")
+// }
+// function setMainElementHeight() {
+//   console.log("- in setMainElementHeight() ")
+// }
 
+document.addEventListener('DOMContentLoaded',checkValues);
+
+
+
+function checkValues(){
+  var headerNavBar = document.querySelector('header')
+  console.log("headerNavBar.offsetHeight (checkValues): " + headerNavBar.offsetHeight + 'px')
 }
 
-function navBarHamburgerMenu() {
-  console.log("- scripts.js is accessed!")
-
-  const hamburgerMenu = document.querySelector('.hamburger-menu');
-  // Selects the first element in the document with the class 'hamburger-menu'.
-  const navLinks = document.querySelector('.nav-links');
-  const body = document.querySelector('body');
-
-  hamburgerMenu.addEventListener('click', (event) => {
-    // console.log('- clicked hamburger :))');
-    navLinks.classList.toggle('nav-links-active');
-    event.stopPropagation(); // Prevent body click event from firing immediately
-    checkHeaderHeight()
-  });
-
-  // Function to close the nav links if click is outside
-  const closeNavOnClickOutside = (event) => {
-    if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-      console.log('--> clicked outside nav');
-      if (navLinks.classList.contains('nav-links-active')) {
-        navLinks.classList.remove('nav-links-active');
-      }
-    }
-  };
-
-  body.addEventListener('click', closeNavOnClickOutside);
-
-  // Optional: Stop propagation on nav links to prevent closing if clicked inside nav
-  navLinks.addEventListener('click', (event) => {
-    event.stopPropagation();
-  });
-}
 
 // Function to set the height of the main element to the height of the headerNavBar element
 function setMainElementHeight() {
@@ -73,26 +44,75 @@ function setMainElementHeight() {
   mainElement.style.marginTop = headerNavBar.offsetHeight + 'px';
 }
 
-function hideProjectHeaderTitle(){
-  let divMarkdownTitle = document.querySelector('.h1_div_markdown_title')
-  let pageName = document.querySelector('.page-name').querySelector('h1')
-  if (divMarkdownTitle.textContent.length > 0){
-    pageName.style.display = "none";
-  } else { 
-    pageName.style.display = "inline-block"
-  }
-  checkHeaderHeight()
-}
+function documentationDropdown() {
+  console.log("-- accessed documentationDropdown")
+  let divDocsDropdownContent = document.querySelector('.div_documentations_dropdown_content')
 
+  // Set the divDocsDropdownContent element's CSS in line with the JavaScript
+  var currentDropContent = window.getComputedStyle(divDocsDropdownContent).display;
 
-function checkHeaderHeight(){
-    // Select the main element
-    var mainElement = document.querySelector('main');
-
-    // Select the headerNavBar element
+  console.log("currentDropContent: " + currentDropContent)
+  if (currentDropContent === "none"){
+    divDocsDropdownContent.style.display = "inline-block"
     var headerNavBar = document.querySelector('header')
-
-    console.log(`headerNavBar.offsetHeight: ${headerNavBar.offsetHeight}`)
-    console.log(`mainElement.style.marginTop: ${mainElement.style.marginTop}`)
+    // headerNavBar.offsetHeight is height of header / navbar dark gray
+    let varHeight = headerNavBar.offsetHeight - 1
+    divDocsDropdownContent.style.top = varHeight + 'px'
+  } 
+  if (currentDropContent === "block") {
+    divDocsDropdownContent.style.display = "none"
+  }
 }
+
+function adjustDropdownHeightOnScreenSizeChange(){
+  let divDocsDropdownContent = document.querySelector('.div_documentations_dropdown_content')
+  var headerNavBar = document.querySelector('header')
+  let varHeight = headerNavBar.offsetHeight - 1
+  divDocsDropdownContent.style.top = varHeight + 'px'
+}
+
+function hideDocsWebTitle(){
+  let markdownTitle = document.querySelector('.h1_div_markdown_title')
+  console.log("markdownTitle.length: " + markdownTitle.textContent.length)
+  if (markdownTitle.textContent.length > 0){
+    let pageName = document.querySelector('.page-name')
+    pageName.style.display = "none"
+  }
+}
+
+// function navBarHamburgerMenu() {
+//   console.log("- scripts.js is accessed!")
+
+//   const hamburgerMenu = document.querySelector('.hamburger-menu');
+//   // Selects the first element in the document with the class 'hamburger-menu'.
+//   const navLinks = document.querySelector('.nav-links');
+//   const body = document.querySelector('body');
+
+//   hamburgerMenu.addEventListener('click', (event) => {
+//     // console.log('- clicked hamburger :))');
+//     navLinks.classList.toggle('nav-links-active');
+//     event.stopPropagation(); // Prevent body click event from firing immediately
+//   });
+
+//   // Function to close the nav links if click is outside
+//   const closeNavOnClickOutside = (event) => {
+//     if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+//       console.log('--> clicked outside nav');
+//       if (navLinks.classList.contains('nav-links-active')) {
+//         navLinks.classList.remove('nav-links-active');
+//       }
+//     }
+//   };
+
+//   body.addEventListener('click', closeNavOnClickOutside);
+
+//   // Optional: Stop propagation on nav links to prevent closing if clicked inside nav
+//   navLinks.addEventListener('click', (event) => {
+//     event.stopPropagation();
+//   });
+// }
+
+
+
+
 

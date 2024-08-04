@@ -33,17 +33,17 @@
 }
 
 header {
-  color: var(--color-accent-blue);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   max-width: 100vw; /* This will prevent the header from expanding beyond the screen */
+  color: var(--color-accent-blue);
+  background-color: var(--color-dark-gray);
 }
 
 .nav-container {
-  width: 97%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -78,11 +78,11 @@ nav .nav-links {
   display: none; /* Hide by default on small screens */
   flex-direction: column;
   position: absolute;
-  top: 60px;
-  right: 10px;
+  right: 0px;
   background-color: var(--color-dark-gray);
   padding: 1rem;
   border-radius: 5px;
+  margin: 0px;
 }
 nav .nav-links li {
   margin: 0;
@@ -94,18 +94,16 @@ nav .hamburger-menu {
   flex-direction: column;
   cursor: pointer;
 }
-nav .hamburger-menu .bar {
-  width: 35px;
-  height: 4px;
-  background-color: white;
-  margin: 4px 0;
-  border-radius: 10px;
+nav .hamburger-menu button {
+  background: none !important;
+  border: none;
 }
 nav .no_hamburger_menu {
   display: none;
 }
 nav .div_documentations_dropdown_content {
   display: none;
+  margin: 0;
 }
 
 .nav-links-active {
@@ -189,10 +187,6 @@ body {
 
 main {
   margin-top: var(--nav-height);
-}
-
-header {
-  background-color: var(--color-dark-gray);
 }
 
 code {
