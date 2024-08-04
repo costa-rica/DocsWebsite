@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded',hideProjectHeaderTitle);
 // Add an event listener for the resize event
 window.addEventListener('resize', () => {
   setMainElementHeight();
-  
 })
 
 function documentationDropdown() {
@@ -41,6 +40,7 @@ function navBarHamburgerMenu() {
     // console.log('- clicked hamburger :))');
     navLinks.classList.toggle('nav-links-active');
     event.stopPropagation(); // Prevent body click event from firing immediately
+    checkHeaderHeight()
   });
 
   // Function to close the nav links if click is outside
@@ -81,8 +81,18 @@ function hideProjectHeaderTitle(){
   } else { 
     pageName.style.display = "inline-block"
   }
+  checkHeaderHeight()
 }
 
 
+function checkHeaderHeight(){
+    // Select the main element
+    var mainElement = document.querySelector('main');
 
+    // Select the headerNavBar element
+    var headerNavBar = document.querySelector('header')
+
+    console.log(`headerNavBar.offsetHeight: ${headerNavBar.offsetHeight}`)
+    console.log(`mainElement.style.marginTop: ${mainElement.style.marginTop}`)
+}
 
